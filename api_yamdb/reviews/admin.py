@@ -25,8 +25,6 @@ class ReviewAdmin(ModelAdmin):
 
 class TitleAdmin(ModelAdmin):
     list_display = ('id', 'name', 'year', 'description')
-    # search_fields = ('description',)
-    # list_filter = ('genre', 'year')
 
 
 site.register(Category, CategoryAdmin)
