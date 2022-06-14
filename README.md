@@ -15,7 +15,7 @@
 ### Запуск проекта в dev-режиме
 клонируйте репозиторий 
 ```
-git clone git@github.com:andrey-kolesnik-moscow/api_yamdb.git
+git clone git@github.com:andrey-kolesnik-moscow/Yamdb_API.git
 ```
 создайте и активируйте виртуальное окружение
 ```
