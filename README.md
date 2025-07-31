@@ -1,57 +1,142 @@
-<a id = "anchor"></a>
-# API Yamdb — программный интерфейс для сбора отзывов и составления рейтингов произведений
+<a id="top"></a>
 
-### Описание
+# 🎬 Yamdb API — Reviews & Ratings Platform
 
-Программный интерфейс создан, как платформа для размещения отзывов и составления рейтингов произведений по категориям. При запуске проекта доступны категории "Книги", "Фильмы", "Музыка". Список может быть расширен или изменен из админ-зоны сайта. Функционал интерфейса предусматривает возможность не только размещать отзывы и ставить оценки произведениям, но и оставлять комментарии к отзывам других пользователей. Для регистрации необходимо ввести логин и адрес своего почтового ящика, после чего отправить код подтверждения и в ответе от сервиса придет JWT-токен, который обеспечит доступ ко всему пользовательскому функционалу сайта. Неавторизованным пользователям сервис доступен только для чтения. Сервис предусматривает 4 уровня идентификации пользователей: аноним, юзер, модератор и админ. Каждый из уровней имеет соотвествующие доступы к приложениям сервиса для их релевантного использования и обеспечения безопасной эксплуатации. 
-***
-### Технологии
-* Python 3.8.3 
-* Django 2.2.16 
-* djangorestframework 3.12.4 
-* PyJWT 2.1.0  
-Полный список используемых технологий -> requirements.txt
-***
-### Запуск проекта в dev-режиме
-клонируйте репозиторий 
+[![Python](https://img.shields.io/badge/Python-3.8.3-blue.svg)](https://python.org)
+[![Django](https://img.shields.io/badge/Django-2.2.16-green.svg)](https://djangoproject.com)
+[![DRF](https://img.shields.io/badge/DRF-3.12.4-red.svg)](https://www.django-rest-framework.org/)
+
+> A powerful REST API platform for collecting reviews and building ratings for creative works across multiple categories.
+
+## 📖 Description
+
+Yamdb API is a comprehensive platform designed for users to share reviews and create ratings for various creative works. The platform supports multiple categories including **Books**, **Movies**, and **Music**, with the ability to expand or modify categories through the admin interface.
+
+### ✨ Key Features
+
+- **📝 Review System**: Users can write detailed reviews and rate works
+- **💬 Comment System**: Engage with other users' reviews through comments
+- **🔐 JWT Authentication**: Secure token-based authentication system
+- **👥 User Roles**: Four distinct access levels (Anonymous, User, Moderator, Admin)
+- **📊 Rating System**: Comprehensive rating and review aggregation
+- **🔒 Role-Based Access**: Granular permissions for different user types
+
+### 🎯 User Access Levels
+
+| Role | Read Access | Write Reviews | Moderate Content | Admin Access |
+|------|-------------|---------------|------------------|--------------|
+| **Anonymous** | ✅ | ❌ | ❌ | ❌ |
+| **User** | ✅ | ✅ | ❌ | ❌ |
+| **Moderator** | ✅ | ✅ | ✅ | ❌ |
+| **Admin** | ✅ | ✅ | ✅ | ✅ |
+
+## 🛠 Technologies
+
+- **Python 3.8.3** - Core programming language
+- **Django 2.2.16** - Web framework
+- **Django REST Framework 3.12.4** - API framework
+- **PyJWT 2.1.0** - JSON Web Token authentication
+
+📋 **Complete dependency list**: [`requirements.txt`](requirements.txt)
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Python 3.8+
+- Git
+- Virtual environment tool
+
+### Installation Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone git@github.com:andrey-kolesnik-moscow/Yamdb_API.git
+   cd Yamdb_API
+   ```
+
+2. **Create and activate virtual environment**
+   
+   **For Windows:**
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+   
+   **For macOS/Linux:**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run database migrations**
+   ```bash
+   python3 manage.py migrate
+   ```
+
+5. **Import sample data (optional)**
+   ```bash
+   python3 manage.py import_csv
+   ```
+
+6. **Start the development server**
+   ```bash
+   python3 manage.py runserver
+   ```
+
+### 📚 API Documentation
+
+Once the server is running, you can access the interactive API documentation at:
+
+- **ReDoc**: `http://localhost:8000/redoc/`
+- **Swagger UI**: `http://localhost:8000/swagger/`
+
+## 🔐 Authentication
+
+The API uses JWT (JSON Web Token) authentication:
+
+1. **Register** with your username and email
+2. **Verify** your email with the confirmation code
+3. **Receive** a JWT token for authenticated access
+4. **Use** the token in the `Authorization: Bearer <token>` header
+
+## 📁 Project Structure
+
 ```
-git clone git@github.com:andrey-kolesnik-moscow/Yamdb_API.git
+Yamdb_api/
+├── api_yamdb/          # Main Django project
+│   ├── api/           # Core API functionality
+│   ├── reviews/       # Reviews and ratings app
+│   ├── users/         # User management app
+│   └── static/        # Static files and data
+├── tests/             # Test suite
+└── requirements.txt   # Dependencies
 ```
-создайте и активируйте виртуальное окружение
+
+## 🧪 Testing
+
+Run the test suite to ensure everything works correctly:
+
+```bash
+python -m pytest
 ```
-python3 -m venv venv
-```
-для Windows
-```
-source venv/Scripts/activate
-```
-для macOS или Linux
-```
-source venv/bin/activate
-```
-установите зависимости проекта
-```
-pip install -r requirements.txt
-```
-выполните миграции
-```
-python3 manage.py migrate
-```
-отдельно можете импортировать тестовые данные
-```
-python3 manage.py import_csv
-```
-запустите проект на локальной машине 
-```
-python3 manage.py runserver 
-```
-***
-Документация к проекту доступна сразу после запуска сервера  ` /redoc/ `  
-***
-### Авторы
-* Андрей Колесник
-* Георгий Кузнецов
-* Павел Фирсов
-***
-[В начало страницы](#anchor)
+
+## 👥 Contributors
+
+- **Andrey Kolesnik** - Project Lead
+- **Georgy Kuznetsov** - Backend Development
+- **Pavel Firsov** - API Design
+
+---
+
+<div align="center">
+
+[⬆️ Back to Top](#top)
+
+</div>
 
