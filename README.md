@@ -51,7 +51,7 @@ Yamdb API is a comprehensive platform designed for users to share reviews and cr
 
 1. **Clone the repository**
    ```bash
-   git clone git@github.com:andrey-kolesnik-moscow/Yamdb_API.git
+   git clone git@github.com:andrei-kolesnik-california/Yamdb_API.git
    cd Yamdb_API
    ```
 
@@ -128,7 +128,7 @@ python -m pytest
 
 ## 👥 Contributors
 
-- **Andrey Kolesnik** - Project Lead
+- **Andrei Kolesnik** - Project Lead
 - **Georgy Kuznetsov** - Backend Development
 - **Pavel Firsov** - API Design
 
